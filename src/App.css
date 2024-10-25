@@ -1,6 +1,13 @@
+body {
+  background-color: rgb(197, 197, 107);
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
 .square {
   background: white;
-  border: 1px solid #999999;
+  border: 1px solid #615c5c;
 
   line-height: 8rem;
   margin-right: -1px;
@@ -20,4 +27,27 @@
 
 .board {
   margin-top: 4rem;
+}
+
+.square img {
+  width: 6rem;
+  height: 6rem;
+}
+
+p {
+  text-align: center;
+}
+
+.chess-numbers {
+  margin-right: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.chess-letters {
+  margin-top: 1.5rem;
+
+}
+
+.a {
+  margin-left: 12rem;
 }
