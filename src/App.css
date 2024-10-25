@@ -3,6 +3,8 @@ body {
   font-weight: bold;
   font-size: 1rem;
   font-family: sans-serif;
+  padding: 0;
+
 }
 
 .square {
@@ -12,21 +14,22 @@ body {
   line-height: 8rem;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 0;
+
   text-align: center;
 
   width: 6rem;
   height: 6rem;
 }
 
-.board-row {
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-}
+
 
 .board {
-  margin-top: 4rem;
+  margin-top: 3rem;
+}
+
+.chessboard{
+  display: block;
+  
 }
 
 .square img {
@@ -34,6 +37,11 @@ body {
   height: 6rem;
 }
 
+/*.chess-piece{
+  width: 4rem;
+  height: 4rem;
+}*/
+/*
 p {
   text-align: center;
 }
@@ -52,10 +60,15 @@ p {
   margin-left: 39rem;
 }
 
-.b, .c, .d, .e {
+.b,
+.c,
+.d,
+.e {
   margin-left: 5rem;
 }
 
-.f, .g, .h {
+.f,
+.g,
+.h {
   margin-left: 5.5rem;
-}
+}*/

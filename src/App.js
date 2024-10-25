@@ -9,150 +9,96 @@ export default function Game() {
   );
 }
 
-
 function Board() {
+  const [squares, setSquares] = useState(Array(64).fill(null));
+  const initialPieces = {
+    0: "images/tower_black.png",
+    1: "images/knight_black.png",
+    2: "images/laufer_black.png",
+    3: "images/queen_black.png",
+    4: "images/king_black.png",
+    5: "images/laufer_black.png",
+    6: "images/knight_black.png",
+    7: "images/tower_black.png",
+    8: "images/pawn_black.png",
+    9: "images/pawn_black.png",
+    10: "images/pawn_black.png",
+    11: "images/pawn_black.png",
+    12: "images/pawn_black.png",
+    13: "images/pawn_black.png",
+    14: "images/pawn_black.png",
+    15: "images/pawn_black.png",
+    48: "images/pawn_white.png",
+    49: "images/pawn_white.png",
+    50: "images/pawn_white.png",
+    51: "images/pawn_white.png",
+    52: "images/pawn_white.png",
+    53: "images/pawn_white.png",
+    54: "images/pawn_white.png",
+    55: "images/pawn_white.png",
+    56: "images/tower_white.png",
+    57: "images/knight_white.png",
+    58: "images/laufer_white.png",
+    59: "images/queen_white.png",
+    60: "images/king_white.png",
+    61: "images/laufer_white.png",
+    62: "images/knight_white.png",
+    63: "images/tower_white.png",
+  };
 
-  const [squares, setSquares] = useState(Array(9).fill(null))
+
+  Object.keys(initialPieces).forEach((key) => (squares[key] = initialPieces[key]));
+
+  const movePiece = (fromIndex, toIndex) => {
+    const newSquares = [...squares];
+    newSquares[toIndex] = newSquares[fromIndex];
+    newSquares[fromIndex] = null;
+    setSquares(newSquares);
+  };
 
   return (
-    <>
-
-      <div className='black-team'>
-        <p>White Pieces taken:</p>
-
-        <div className='board-row'>
-          <p className="chess-numbers">8</p>
-          <Square value={squares[0]} image="images/tower_black.png" />
-          <Square value={squares[1]} image="images/knight_black.png" />
-          <Square value={squares[2]} image="images/laufer_black.png" />
-          <Square value={squares[0]} image="images/queen_black.png" />
-          <Square value={squares[0]} image="images/king_black.png" />
-          <Square value={squares[5]} image="images/laufer_black.png" />
-          <Square value={squares[6]} image="images/knight_black.png" />
-          <Square value={squares[7]} image="images/tower_black.png" />
-        </div>
-
-        <div className='board-row'>
-          <p className="chess-numbers">7</p>
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-          <Square value={squares[0]} image="images/pawn_black.png" />
-        </div>
-      </div>
-
-      <div className='board-row'>
-        <p className="chess-numbers">6</p>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-
-      <div className='board-row'>
-        <p className="chess-numbers">5</p>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-
-      <div className='board-row'>
-        <p className="chess-numbers">4</p>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-
-      <div className='board-row'>
-        <p className="chess-numbers">3</p>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-
-      <div className='black-team'>
-        <div className='board-row'>
-          <p className="chess-numbers">2</p>
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-          <Square value={squares[0]} image="images/pawn_white.png" />
-        </div>
-
-        <div className='board-row'>
-          <p className="chess-numbers">1</p>
-          <Square value={squares[2]} image="images/tower_white.png" />
-          <Square value={squares[3]} image="images/knight_white.png" />
-          <Square value={squares[4]} image="images/laufer_white.png" />
-          <Square value={squares[5]} image="images/queen_white.png" />
-          <Square value={squares[6]} image="images/king_white.png" />
-          <Square value={squares[3]} image="images/laufer_white.png" />
-          <Square value={squares[6]} image="images/knight_white.png" />
-          <Square value={squares[7]} image="images/tower_white.png" />
-        </div>
-
-        <div className="chess-letters">
-          <span className='a'>A</span>
-          <span className='b'>B</span>
-          <span className='c'>C</span>
-          <span className='d'>D</span>
-          <span className='e'>E</span>
-          <span className='f'>F</span>
-          <span className='g'>G</span>
-          <span className='h'>H</span>
-
-        </div>
-
-        <p>Black Pieces taken:</p>
-      </div>
-
-    </>
-  )
-}
-
-function Square({ value, image }) {
-  return (
-    <button className="square">
-      {value}
-      {image && <img src={image} alt="King." />}
-    </button>
+    <div className="chessboard">
+      {squares.map((image, index) => (
+        <Square
+          key={index}
+          index={index}
+          image={image}
+          movePiece={movePiece}
+        />
+      ))}
+    </div>
   );
 }
 
+function Square({ index, image, movePiece }) {
+  const handleDragStart = (e) => {
+    e.dataTransfer.setData("fromIndex", index);
+  };
 
-function StartPosition() {
-  //  return <button className="square" ></button>
+  const handleDrop = (e) => {
+    const fromIndex = e.dataTransfer.getData("fromIndex");
+    movePiece(fromIndex, index);
+  };
 
-}
+  const handleDragOver = (e) => e.preventDefault();
 
-function Characters() {
-  // const king_black = "images/king_black.png";
-
+  return (
+    <div className="square"
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      style={{
+        // backgroundColor: (index % 2 === 0) ? 'white' : 'gray',
+      }}
+    >
+      {image && (
+        <img
+          className="chess-piece"
+          src={image}
+          alt="piece"
+          draggable
+          onDragStart={handleDragStart}
+        />
+      )}
+    </div >
+  );
 }
