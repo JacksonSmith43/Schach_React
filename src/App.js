@@ -120,11 +120,14 @@ function Board() {
 
         <div className="chess-letters">
           <span className='a'>A</span>
-          <span>B</span>
-          <span>C</span>
-          <span>D</span>
-          <span>E</span>
+          <span className='b'>B</span>
+          <span className='c'>C</span>
+          <span className='d'>D</span>
+          <span className='e'>E</span>
           <span className='f'>F</span>
+          <span className='g'>G</span>
+          <span className='h'>H</span>
+
         </div>
 
         <p>Black Pieces taken:</p>

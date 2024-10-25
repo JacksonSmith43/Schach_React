@@ -49,5 +49,13 @@ p {
 }
 
 .a {
-  margin-left: 12rem;
+  margin-left: 39rem;
+}
+
+.b, .c, .d, .e {
+  margin-left: 5rem;
+}
+
+.f, .g, .h {
+  margin-left: 5.5rem;
 }
