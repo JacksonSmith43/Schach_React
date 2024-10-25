@@ -1,0 +1,23 @@
+.square {
+  background: white;
+  border: 1px solid #999999;
+
+  line-height: 8rem;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+
+  width: 6rem;
+  height: 6rem;
+}
+
+.board-row {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.board {
+  margin-top: 4rem;
+}
