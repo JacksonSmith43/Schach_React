@@ -1,57 +1,69 @@
 import { useState } from 'react';
 import './App.css';
+import { Chessboard } from 'react-chessboard';
 
 export default function Game() {
   return (
+
     <div className="board">
       <Board />
+    
     </div>
   );
 }
 
 function Board() {
-  const initialBoard = Array(64).fill(null);
 
-  initialBoard[0] = 'images/tower_black.png';
-  initialBoard[1] = 'images/knight_black.png';
-  initialBoard[2] = 'images/laufer_black.png';
-  initialBoard[3] = 'images/queen_black.png';
-  initialBoard[4] = 'images/king_black.png';
-  initialBoard[5] = 'images/laufer_black.png';
-  initialBoard[6] = 'images/knight_black.png';
-  initialBoard[7] = 'images/tower_black.png';
+  const getInitialBoard = () => {
+    const board = Array(64).fill(null);
 
-  initialBoard[8] = 'images/pawn_black.png';
-  initialBoard[9] = 'images/pawn_black.png';
-  initialBoard[10] = 'images/pawn_black.png';
-  initialBoard[11] = 'images/pawn_black.png';
-  initialBoard[12] = 'images/pawn_black.png';
-  initialBoard[13] = 'images/pawn_black.png';
-  initialBoard[14] = 'images/pawn_black.png';
-  initialBoard[15] = 'images/pawn_black.png';
+    board[0] = 'images/tower_black.png';
+    board[1] = 'images/knight_black.png';
+    board[2] = 'images/laufer_black.png';
+    board[3] = 'images/queen_black.png';
+    board[4] = 'images/king_black.png';
+    board[5] = 'images/laufer_black.png';
+    board[6] = 'images/knight_black.png';
+    board[7] = 'images/tower_black.png';
 
-  initialBoard[48] = 'images/pawn_white.png';
-  initialBoard[49] = 'images/pawn_white.png';
-  initialBoard[50] = 'images/pawn_white.png';
-  initialBoard[51] = 'images/pawn_white.png';
-  initialBoard[52] = 'images/pawn_white.png';
-  initialBoard[53] = 'images/pawn_white.png';
-  initialBoard[54] = 'images/pawn_white.png';
-  initialBoard[55] = 'images/pawn_white.png';
+    board[8] = 'images/pawn_black.png';
+    board[9] = 'images/pawn_black.png';
+    board[10] = 'images/pawn_black.png';
+    board[11] = 'images/pawn_black.png';
+    board[12] = 'images/pawn_black.png';
+    board[13] = 'images/pawn_black.png';
+    board[14] = 'images/pawn_black.png';
+    board[15] = 'images/pawn_black.png';
 
-  initialBoard[56] = 'images/tower_white.png';
-  initialBoard[57] = 'images/knight_white.png';
-  initialBoard[58] = 'images/laufer_white.png';
-  initialBoard[59] = 'images/queen_white.png';
-  initialBoard[60] = 'images/king_white.png';
-  initialBoard[61] = 'images/laufer_white.png';
-  initialBoard[62] = 'images/knight_white.png';
-  initialBoard[63] = 'images/tower_white.png';
+    board[48] = 'images/pawn_white.png';
+    board[49] = 'images/pawn_white.png';
+    board[50] = 'images/pawn_white.png';
+    board[51] = 'images/pawn_white.png';
+    board[52] = 'images/pawn_white.png';
+    board[53] = 'images/pawn_white.png';
+    board[54] = 'images/pawn_white.png';
+    board[55] = 'images/pawn_white.png';
+
+    board[56] = 'images/tower_white.png';
+    board[57] = 'images/knight_white.png';
+    board[58] = 'images/laufer_white.png';
+    board[59] = 'images/queen_white.png';
+    board[60] = 'images/king_white.png';
+    board[61] = 'images/laufer_white.png';
+    board[62] = 'images/knight_white.png';
+    board[63] = 'images/tower_white.png';
+
+    return board;
+  }
 
 
 
-  const [squares, setSquares] = useState(initialBoard);
+  const [squares, setSquares] = useState(getInitialBoard());
   const [fromIndex, setFromIndex] = useState(null);
+
+  const resetGame = () => {
+    setSquares(getInitialBoard());
+  }
 
   const handleDragStart = (index) => { // Saves the index of the current picked figure. 
     setFromIndex(index);
@@ -84,6 +96,9 @@ function Board() {
           handleDragOver={handleDragOver}
         />
       ))}
+
+      <button onClick={resetGame} className='btn btn-primary' id='resets-game'>Reset game</button>
+
     </div>
   );
 }
@@ -106,3 +121,7 @@ function Square({ image, handleDragStart, handleDrop, handleDragOver }) {
     </div>
   );
 }
+
+
+
+
