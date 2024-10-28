@@ -11,7 +11,6 @@ body {
   background: white;
   border: 1px solid #615c5c;
 
-  line-height: 8rem;
   margin-right: -1px;
   margin-top: -1px;
 
@@ -27,9 +26,10 @@ body {
   margin-top: 3rem;
 }
 
-.chessboard{
-  display: block;
-  
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 6rem); /* 8 columns, each is 6 rem wide. */
+  justify-content: center;
 }
 
 .square img {
